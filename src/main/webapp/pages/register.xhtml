@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Inscription</title>
+</h:head>
+
+<h:body>
+
+    <h2>Créer un compte</h2>
+
+    <h:form>
+
+        Nom :
+        <h:inputText value="#{registerController.nom}" />
+        <br/><br/>
+
+        Prénom :
+        <h:inputText value="#{registerController.prenom}" />
+        <br/><br/>
+
+        Email :
+        <h:inputText value="#{registerController.email}" />
+        <br/><br/>
+
+        Mot de passe :
+        <h:inputSecret value="#{registerController.motDePasse}" />
+        <br/><br/>
+
+        <h:commandButton value="S'inscrire"
+                         action="#{registerController.register}" />
+
+    </h:form>
+
+</h:body>
+</html>
