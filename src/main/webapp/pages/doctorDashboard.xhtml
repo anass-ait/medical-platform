@@ -3,16 +3,21 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-    <title>Dashboard Patient</title>
+    <title>Dashboard Médecin</title>
 </h:head>
 
 <h:body>
 
-    <h1>Dashboard Patient 🚀</h1>
+    <h1>Dashboard Médecin 👨‍⚕️</h1>
 
     <h2>Mes Rendez-vous</h2>
 
-    <h:dataTable value="#{rendezVousController.mesRendezVous}" var="r" border="1">
+    <h:dataTable value="#{rendezVousController.rendezVousMedecin}" var="r" border="1">
+
+        <h:column>
+            <f:facet name="header">Patient</f:facet>
+            #{r.patient.utilisateur.nom}
+        </h:column>
 
         <h:column>
             <f:facet name="header">Date</f:facet>
@@ -24,9 +29,17 @@
             #{r.statut}
         </h:column>
 
+        <!-- 🔥 ACTIONS -->
         <h:column>
-            <f:facet name="header">Médecin ID</f:facet>
-            #{r.medecin.idMedecin}
+            <f:facet name="header">Action</f:facet>
+
+            <h:form>
+                <h:commandButton value="✔ Confirmer"
+                                 action="#{rendezVousController.confirmer(r)}" />
+                <h:commandButton value="❌ Annuler"
+                                 action="#{rendezVousController.annuler(r)}" />
+            </h:form>
+
         </h:column>
 
     </h:dataTable>

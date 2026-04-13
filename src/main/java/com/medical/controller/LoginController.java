@@ -23,9 +23,18 @@ public class LoginController implements Serializable {
 
         if (u != null) {
             utilisateurConnecte = u;
-            System.out.println("LOGIN SUCCESS ✅");
 
-            return "patientDashboard.xhtml?faces-redirect=true";
+            System.out.println("LOGIN SUCCESS ✅");
+            System.out.println("ROLE = " + u.getRole());
+
+            // 🔥 REDIRECTION PAR ROLE
+            if ("PATIENT".equalsIgnoreCase(u.getRole())) {
+                return "patientDashboard.xhtml?faces-redirect=true";
+            }
+
+            if ("MEDECIN".equalsIgnoreCase(u.getRole())) {
+                return "doctorDashboard.xhtml?faces-redirect=true";
+            }
         }
 
         System.out.println("LOGIN FAILED ❌");

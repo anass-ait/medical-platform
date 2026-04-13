@@ -5,6 +5,7 @@ import com.medical.dao.RendezVousDAO;
 import com.medical.model.Medecin;
 import com.medical.model.Patient;
 import com.medical.model.RendezVous;
+import com.medical.dao.MedecinDAO;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -81,6 +82,33 @@ public class RendezVousController implements Serializable {
         Patient patient = new PatientDAO().getByUtilisateurId(userId);
 
         return new RendezVousDAO().getByPatientId(patient.getIdPatient());
+    }
+
+    public List<RendezVous> getRendezVousMedecin() {
+
+        LoginController loginController = (LoginController)
+                FacesContext.getCurrentInstance()
+                        .getExternalContext()
+                        .getSessionMap()
+                        .get("loginController");
+
+        Long userId = loginController.getUtilisateurConnecte().getIdUtilisateur();
+
+        Medecin medecin = new MedecinDAO().getByUtilisateurId(userId);
+
+        return new RendezVousDAO().getByMedecinId(medecin.getIdMedecin());
+    }
+
+    public String confirmer(RendezVous rdv) {
+        rdv.setStatut("CONFIRME");
+        new RendezVousDAO().update(rdv);
+        return null;
+    }
+
+    public String annuler(RendezVous rdv) {
+        rdv.setStatut("ANNULE");
+        new RendezVousDAO().update(rdv);
+        return null;
     }
 
     // getters setters

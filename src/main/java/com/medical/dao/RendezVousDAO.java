@@ -34,4 +34,30 @@ public class RendezVousDAO {
             em.close();
         }
     }
+
+    public List<RendezVous> getByMedecinId(Long medecinId) {
+        EntityManager em = JPAUtil.getEntityManager();
+
+        try {
+            return em.createQuery(
+                            "SELECT r FROM RendezVous r WHERE r.medecin.idMedecin = :id",
+                            RendezVous.class)
+                    .setParameter("id", medecinId)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    public void update(RendezVous rdv) {
+        EntityManager em = JPAUtil.getEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            em.merge(rdv);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
 }
