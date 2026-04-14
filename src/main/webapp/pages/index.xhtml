@@ -1,0 +1,142 @@
+<ui:composition template="/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="content">
+
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-badge">
+            <span>🚀 Nouvelle génération de santé digitale</span>
+        </div>
+
+        <h1>
+            Accédez facilement <br/>
+            aux <span class="gradient-text">médecins généralistes</span>
+        </h1>
+
+        <p>
+            Une expérience simple, rapide et moderne pour gérer
+            vos rendez-vous médicaux.
+        </p>
+
+        <h:form styleClass="hero-buttons">
+            <h:commandButton value="Commencer →"
+                             action="/pages/register.xhtml?faces-redirect=true"
+                             styleClass="btn-primary btn-large"/>
+
+            <h:commandButton value="Se connecter"
+                             action="/pages/login.xhtml?faces-redirect=true"
+                             styleClass="btn-glass"/>
+        </h:form>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Utilisateurs</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Médecins</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-number">99%</span>
+                <span class="stat-label">Satisfaction</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="section">
+        <div class="section-header">
+            <span class="section-badge">Fonctionnalités</span>
+            <h2>Pourquoi choisir <span class="gradient-text">MedPlatform</span> ?</h2>
+            <p class="section-subtitle">Des outils pensés pour simplifier votre parcours santé</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Ultra rapide</h3>
+                <p>Réservez en quelques secondes sans complexité.</p>
+                <div class="card-glow"></div>
+            </div>
+
+            <div class="card featured">
+                <div class="card-icon">🔐</div>
+                <h3>Sécurité totale</h3>
+                <p>Protection complète de vos données médicales.</p>
+                <div class="card-glow"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Organisation</h3>
+                <p>Suivez tous vos rendez-vous facilement.</p>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW -->
+    <div class="section section-dark">
+        <div class="section-header">
+            <span class="section-badge">Processus</span>
+            <h2>Comment ça <span class="gradient-text">marche</span> ?</h2>
+            <p class="section-subtitle">Trois étapes simples pour votre santé</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">01</div>
+                <div class="timeline-content">
+                    <h3>Inscription</h3>
+                    <p>Créez votre compte en quelques clics.</p>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">02</div>
+                <div class="timeline-content">
+                    <h3>Choix médecin</h3>
+                    <p>Sélectionnez un médecin disponible.</p>
+                </div>
+            </div>
+
+            <div class="timeline-connector"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">03</div>
+                <div class="timeline-content">
+                    <h3>Rendez-vous</h3>
+                    <p>Confirmez instantanément votre consultation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section cta-section">
+        <div class="cta-box">
+            <h2>Prêt à commencer ?</h2>
+            <p>Rejoignez des milliers d'utilisateurs satisfaits</p>
+            <h:form>
+                <h:commandButton value="Créer mon compte gratuitement"
+                                 action="/pages/register.xhtml?faces-redirect=true"
+                                 styleClass="btn-primary btn-large"/>
+            </h:form>
+        </div>
+    </div>
+
+
+
+
+        </ui:define>
+
+        </ui:composition>

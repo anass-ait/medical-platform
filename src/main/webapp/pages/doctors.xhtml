@@ -1,42 +1,55 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>Médecins</title>
-</h:head>
+<ui:composition template="/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:body>
+    <ui:define name="content">
 
-    <h2>Liste des médecins</h2>
+        <div class="section">
 
-    <h:dataTable value="#{medecinController.medecins}" var="m" border="1">
+            <h1 style="text-align:center; margin-bottom:30px;">
+                Liste des médecins 👨‍⚕️
+            </h1>
 
-        <h:column>
-            <f:facet name="header">Nom</f:facet>
-            #{m.utilisateur.nom}
-        </h:column>
+            <div style="max-width:1200px; margin:0 auto;">
 
-        <h:column>
-            <f:facet name="header">Prénom</f:facet>
-            #{m.utilisateur.prenom}
-        </h:column>
+                <h:dataTable value="#{medecinController.medecins}"
+                             var="m"
+                             styleClass="table">
 
-        <h:column>
-            <f:facet name="header">Email</f:facet>
-            #{m.utilisateur.email}
-        </h:column>
+                    <h:column>
+                        <f:facet name="header">Nom</f:facet>
+                        #{m.utilisateur.nom}
+                    </h:column>
 
-        <h:column>
-            <f:facet name="header">Action</f:facet>
+                    <h:column>
+                        <f:facet name="header">Prénom</f:facet>
+                        #{m.utilisateur.prenom}
+                    </h:column>
 
-            <h:form>
-                <h:commandButton value="Prendre RDV"
-                                 action="#{rendezVousController.goToRdv(m.idMedecin)}" />
-            </h:form>
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        #{m.utilisateur.email}
+                    </h:column>
 
-        </h:column>
+                    <h:column>
+                        <f:facet name="header">Action</f:facet>
 
-    </h:dataTable>
+                        <h:form>
+                            <h:commandButton value="Prendre RDV"
+                                             action="#{rendezVousController.goToRdv(m.idMedecin)}"
+                                             styleClass="btn-primary"/>
+                        </h:form>
 
-</h:body>
-</html>
+                    </h:column>
+
+                </h:dataTable>
+
+            </div>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

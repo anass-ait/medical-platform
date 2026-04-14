@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>MedPlatform</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/css/style.css"/>
+</h:head>
+
+<h:body>
+
+    <!-- NAVBAR (réutilisée partout) -->
+    <div class="navbar">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <h2>MedPlatform</h2>
+        </div>
+
+        <h:form styleClass="nav-buttons">
+
+            <!-- Afficher seulement si NON connecté -->
+            <h:commandButton value="Se connecter"
+                             action="/pages/login.xhtml?faces-redirect=true"
+                             styleClass="btn-outline"
+                             rendered="#{empty sessionScope.user}" />
+
+            <h:commandButton value="Créer un compte"
+                             action="/pages/register.xhtml?faces-redirect=true"
+                             styleClass="btn-primary"
+                             rendered="#{empty sessionScope.user}" />
+
+        </h:form>
+    </div>
+
+    <!-- CONTENU DYNAMIQUE -->
+    <ui:insert name="content"/>
+
+    <!-- FOOTER GLOBAL -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon">✦</span>
+                <span>MedPlatform</span>
+            </div>
+            <p>© 2026 MedPlatform — L'avenir de la santé digitale</p>
+        </div>
+    </div>
+
+</h:body>
+</html>

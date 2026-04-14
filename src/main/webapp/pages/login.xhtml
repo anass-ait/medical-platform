@@ -1,25 +1,40 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<ui:composition template="/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-    <title>Login</title>
-</h:head>
+    <ui:define name="content">
 
-<h:body>
+        <div class="hero" style="min-height: 80vh; display:flex; align-items:center; justify-content:center;">
 
-    <h2>Connexion</h2>
+            <div class="card" style="width:400px; text-align:center;">
 
-    <h:form>
+                <h2 style="margin-bottom:20px;">Connexion</h2>
 
-        <h:inputText value="#{loginController.email}" />
+                <h:form>
 
-        <h:inputSecret value="#{loginController.motDePasse}" />
+                    <div style="margin-bottom:15px;">
+                        <h:inputText value="#{loginController.email}"
+                                     styleClass="input"
+                                     placeholder="Email" />
+                    </div>
 
-        <h:commandButton value="Se connecter"
-                         action="#{loginController.login}" />
+                    <div style="margin-bottom:20px;">
+                        <h:inputSecret value="#{loginController.motDePasse}"
+                                       styleClass="input"
+                                       placeholder="Mot de passe" />
+                    </div>
 
-    </h:form>
+                    <h:commandButton value="Se connecter"
+                                     action="#{loginController.login}"
+                                     styleClass="btn-primary btn-large"/>
 
-</h:body>
+                </h:form>
 
-</html>
+            </div>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

@@ -1,36 +1,50 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<ui:composition template="/templates/layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-    <title>Inscription</title>
-</h:head>
+    <ui:define name="content">
 
-<h:body>
+        <div class="hero" style="min-height: 90vh; display:flex; align-items:center; justify-content:center;">
 
-    <h2>Créer un compte</h2>
+            <div class="card" style="width:420px; text-align:center;">
 
-    <h:form>
+                <h2 style="margin-bottom:25px;">Créer un compte</h2>
 
-        Nom :
-        <h:inputText value="#{registerController.nom}" />
-        <br/><br/>
+                <h:form style="text-align:left;">
 
-        Prénom :
-        <h:inputText value="#{registerController.prenom}" />
-        <br/><br/>
+                    <div style="margin-bottom:15px;">
+                        <label class="form-label">Nom</label>
+                        <h:inputText value="#{registerController.nom}" styleClass="input"/>
+                    </div>
 
-        Email :
-        <h:inputText value="#{registerController.email}" />
-        <br/><br/>
+                    <div style="margin-bottom:15px;">
+                        <label class="form-label">Prénom</label>
+                        <h:inputText value="#{registerController.prenom}" styleClass="input"/>
+                    </div>
 
-        Mot de passe :
-        <h:inputSecret value="#{registerController.motDePasse}" />
-        <br/><br/>
+                    <div style="margin-bottom:15px;">
+                        <label class="form-label">Email</label>
+                        <h:inputText value="#{registerController.email}" styleClass="input"/>
+                    </div>
 
-        <h:commandButton value="S'inscrire"
-                         action="#{registerController.register}" />
+                    <div style="margin-bottom:20px;">
+                        <label class="form-label">Mot de passe</label>
+                        <h:inputSecret value="#{registerController.motDePasse}" styleClass="input"/>
+                    </div>
 
-    </h:form>
+                    <div style="text-align:center;">
+                        <h:commandButton value="S'inscrire"
+                                         action="#{registerController.register}"
+                                         styleClass="btn-primary btn-large"/>
+                    </div>
 
-</h:body>
-</html>
+                </h:form>
+
+            </div>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>
